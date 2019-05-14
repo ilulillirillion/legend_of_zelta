@@ -17,31 +17,31 @@ void game_loop(char main_char, int row, int col, int user_input) {
 
   for(;;) {
     user_input = getch();
-    printw("User pressed %d", user_input);
+    printw("User pressed %d or %c", user_input, user_input);
     
     // Up
-    if(user_input == KEY_UP) {
+    if(user_input == KEY_UP || user_input == 'w' || user_input == 'W') {
       erase(row, col);
       row = row - 1;
       mvaddch(row, col, main_char);
       refresh();
     }
     // Right
-    else if(user_input == KEY_RIGHT) {
+    else if(user_input == KEY_RIGHT || user_input == 'd' || user_input == 'D') {
       erase(row, col);
       col = col + 1;
       mvaddch(row, col, main_char);
       refresh();
     }
     // Down
-    else if(user_input == KEY_DOWN) {
+    else if(user_input == KEY_DOWN || user_input == 's' || user_input == 'S') {
       erase(row, col);
       row = row + 1;
       mvaddch(row, col, main_char);
       refresh();
     }
     // Left
-    else if(user_input == KEY_LEFT) {
+    else if(user_input == KEY_LEFT || user_input == 'a' || user_input == 'A') {
       erase(row, col);
       col = col - 1;
       mvaddch(row, col, main_char);
