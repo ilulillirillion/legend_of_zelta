@@ -1,5 +1,4 @@
 #include <ncurses.h>
-#include <sstream>
 
 
 void erase(int y, int x) {
@@ -18,17 +17,9 @@ void game_loop(char main_char, int row, int col, int user_input) {
 
   for(;;) {
     user_input = getch();
-    // std::string user_input_message = "User pressed" + std::string(user_input);
-    std::ostringstream user_input_message;
-    user_input_message << "User pressed " << user_input;
-    //const char* test_input_message = user_input_message.str().c_str();
-    //std::string user_input_message = "test";
-    //basic_string test_message = "test2";
-    //printw(user_input_message.str());
-    //printw(test_input_message);
-    printw(user_input_message.str().c_str());
+    printw("User pressed %d", user_input);
     
-    // W or Up
+    // Up
     if(user_input == KEY_UP) {
       erase(row, col);
       row = row - 1;
