@@ -6,7 +6,7 @@
 
 class Frame {
   // Frame dimensions
-  int _height, width;
+  int _height, _width;
   // Frame position
   int _row, _col;
   // Boolean - False for a window and True for a subwindow (viewport)
@@ -20,7 +20,7 @@ class Frame {
     // Get the window
     WINDOW *win();
     // Get the parent window
-    WINDOW *super()
+    WINDOW *super();
     // Initialize a main window (no parent)
     Frame(int nr_rows, int nr_cols, int row_0, int col_0);
     // Initialize a subwindow (viewport) with a parent window

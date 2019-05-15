@@ -2,7 +2,7 @@
 #define CHARACTER_H
 
 class Character {
-  int _row, col;
+  int _row, _col;
   char _symbol;
   public:
     // Create a character

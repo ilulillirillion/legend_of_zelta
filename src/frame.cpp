@@ -30,9 +30,9 @@ Frame::~Frame() {
 }
 
 
-// Add a character to thw window
+// Add a character to the window
 void Frame::add(Character &x) {
-  mvaddch(_w, x.row(), x.col(), x.symbol());
+  mvwaddch(_w, x.row(), x.col(), x.symbol());
 }
 
 
@@ -43,7 +43,7 @@ void Frame::erase(Character &x) {
 
 
 // Add a character at a specific position in the window
-void Frame:add(Character &x, int row_0, int col_0) {
+void Frame::add(Character &x, int row_0, int col_0) {
   if((row_0 >= 0 && row_0 < _height) && (col_0 >= 0 && col_0 < _width)) {
     erase(x);
     mvwaddch(_w, row_0, col_0, x.symbol());
@@ -62,7 +62,7 @@ void Frame::center(Character &x) {
 
     if(_c + _width >= ww) {
       int delta = ww - (_c + _width);
-      cc = _c + delta
+      cc = _c + delta;
     }
     else {
       cc = _c;
@@ -134,7 +134,7 @@ void Frame::fill_window() {
   // Fill the fourth region with 3's
   for(int y = max_y; y < _height; ++y) {
     for(int x = max_x; x < _width; ++x) {
-      mvwaddch(_w, y, x, '3')
+      mvwaddch(_w, y, x, '3');
     }
   }
   

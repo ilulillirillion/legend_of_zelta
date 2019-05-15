@@ -26,12 +26,12 @@ void Screen::add(const char *message) {
 
 
 // Get the screen height
-int Screen:height() {
+int Screen::height() {
   return _height;
 }
 
 
 // Get the screen width
-int Screen:width() {
+int Screen::width() {
   return _width;
 }

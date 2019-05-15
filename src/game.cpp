@@ -4,7 +4,7 @@
 #include "frame.h"
 #include "character.h"
 
-void game_loop(Frame, &game_map, Frame &viewport, Character &main_char, int user_input) {
+void game_loop(Frame &game_map, Frame &viewport, Character &main_char, int user_input) {
   // Check if user wishes to quit
   if(user_input == 'q' || user_input == 'Q') return;
 
