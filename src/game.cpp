@@ -73,7 +73,10 @@ int main() {
   Character main_char('@', game_map.height()/2, game_map.width()/2);
 
   // Fill the game map with numbers
-  game_map.fill_window();
+  //game_map.fill_window();
+
+  // Fill the game map with lakes, planes, mountains and snow
+  game_map.gen_perlin(237);
 
   // Start the game loop
   game_loop(game_map, viewport, main_char, user_input);

@@ -1,4 +1,5 @@
 #include "frame.h"
+#include "perlin_noise.h"
 
 
 // Initialize a main window (no parent)
@@ -45,6 +46,12 @@ void Frame::erase(Character &x) {
 // Add a character at a specific position in the window
 void Frame::add(Character &x, int row_0, int col_0) {
   if((row_0 >= 0 && row_0 < _height) && (col_0 >= 0 && col_0 < _width)) {
+    // Get the element at the target position
+    char target = mvwinch(_w, row_0, col_0);
+    // If the target position is water, wall or snow, prevent movement
+    if (target == '~' || target == '#' || target == 'S') {
+      return;
+    }
     erase(x);
     mvwaddch(_w, row_0, col_0, x.symbol());
     x.pos(row_0, col_0);
@@ -146,6 +153,43 @@ void Frame::fill_window() {
   for(int x = 0; x < _width; ++x) {
     mvwaddch(_w, 0, x, '|');
     mvwaddch(_w, _height - 1, x, '|');
+  }
+}
+
+
+// Fill the map with lakes, planes, mountains and snow
+void Frame::gen_perlin(const unsigned int &seed) {
+  // Create a PerlinNoise object with a random permutation vector generated
+  // via seed
+  PerlinNoise pn(seed);
+
+  // y axis
+  for(int i = 0; i < _height; ++i) {
+    // x axis
+    for(int j = 0; j < _width; ++j) {
+      double x = (double)j/((double) _width);
+      double y = (double)i/((double) _height);
+
+      // ???
+      double n = pn.noise(10 * x, 10 * y, 0.8);
+
+      // Water (or lakes)
+      if (n < 0.35) {
+        mvwaddch(_w, i, j, '~');
+      }
+      // Floors (or plains)
+      else if (n >= 0.35 && n < 0.6) {
+        mvwaddch(_w, i, j, '.');
+      }
+      // Walls (or mountains)
+      else if (n >= 0.6 && n < 0.8) {
+        mvwaddch(_w, i, j, '#');
+      }
+      // Ice (or snow)
+      else {
+        mvwaddch(_w, i, j, 'S');
+      }
+    }
   }
 }
 
