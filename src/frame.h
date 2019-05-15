@@ -56,6 +56,8 @@ public:
 
   // Generate a game map using a Perlin noise function
   void gen_perlin(const unsigned int &seed);
+  // Check if the target position is free
+  bool target_position(int row_0, int col_0);
 
 };
 

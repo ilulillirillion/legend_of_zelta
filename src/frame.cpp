@@ -43,6 +43,22 @@ void Frame::erase(Character &x) {
 }
 
 
+// Check if the target position is free
+bool Frame::target_position(int row_0, int col_0) {
+  // Get the element at target position
+  char target = mvwinch(_w, row_0, col_0);
+  // If the target position is water, wall or snow prevent movement
+  if (target == '~' || target == '#' || target == 'S') {
+    return FALSE;
+  }
+  // If the target position is a monster prevent movement
+  if (target == 'M') {
+    return FALSE;
+  }
+  return TRUE;
+}
+
+
 // Add a character at a specific position in the window
 void Frame::add(Character &x, int row_0, int col_0) {
   if((row_0 >= 0 && row_0 < _height) && (col_0 >= 0 && col_0 < _width)) {
