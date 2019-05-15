@@ -137,4 +137,53 @@ void Frame::fill_window() {
       mvwaddch(_w, y, x, '3')
     }
   }
-// https://github.com/sol-prog/roguelike/blob/master/part_2/Frame.cpp
+  
+  for(int y = 0; y < _height; ++y) {
+    mvwaddch(_w, y, 0, '-');
+    mvwaddch(_w, y, _width - 1, '-');
+  }
+
+  for(int x = 0; x < _width; ++x) {
+    mvwaddch(_w, 0, x, '|');
+    mvwaddch(_w, _height - 1, x, '|');
+  }
+}
+
+
+// Get the window
+WINDOW* Frame::win() {
+  return _w;
+}
+
+
+// Get the parent window
+WINDOW* Frame::super() {
+  return _super;
+}
+
+
+// Get the window type. True denotes subwindow, false implies parent
+bool Frame::has_super() {
+  return _has_super;
+}
+
+
+// Get the height of the window
+int Frame::height() {
+  return _height;
+}
+
+// Get the width of the window
+int Frame::width() {
+  return _width;
+}
+
+// Get the row(y) position of the window
+int Frame::row() {
+  return _row;
+}
+
+// Get the column(x) position of the window
+int Frame::col() {
+  return _col;
+}
