@@ -1,10 +1,10 @@
 #include "PlayerCharacter.h"
 
 
-PlayerCharacter::PlayerCharacter();
+PlayerCharacter::PlayerCharacter() {}
 
 
-PlayerCharacter::~PlayerCharacter();
+PlayerCharacter::~PlayerCharacter() {}
 
 
 PlayerCharacter::PlayerCharacter(float pPosX, float pPosY, sf::Texture pTexture, float pSpeed, float pHealth) {

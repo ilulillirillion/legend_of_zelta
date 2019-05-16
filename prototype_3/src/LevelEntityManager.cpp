@@ -1,10 +1,10 @@
 #include "LevelEntityManager.h"
 
 
-LevelEntityManager::LevelEntityManager();
+LevelEntityManager::LevelEntityManager() {}
 
 
-LevelEntityManager::~LevelEntityManager();
+LevelEntityManager::~LevelEntityManager() {}
 
 
 void LevelEntityManager::Update(KeyState pKeyState) {

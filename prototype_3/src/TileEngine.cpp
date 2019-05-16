@@ -1,10 +1,10 @@
 #include "TileEngine.h"
 
 
-TileEngine::TileEngine();
+TileEngine::TileEngine() {}
 
 
-TileEngine::~TileEngine();
+TileEngine::~TileEngine() {}
 
 
 TileEngine::TileEngine(std::string pFileLocation) {

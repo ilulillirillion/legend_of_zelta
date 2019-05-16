@@ -1,10 +1,10 @@
 #include "Projectile.h"
 
 
-Projectile::Projectile();
+Projectile::Projectile() {}
 
 
-Projectile::~Projectile();
+Projectile::~Projectile() {}
 
 
 Projectile::Projectile(float px, float py, float pDirection, float pVelocity, float pDamage, sf::Texture mSpriteTexture) {
