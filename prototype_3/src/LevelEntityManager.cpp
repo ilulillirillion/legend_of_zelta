@@ -11,7 +11,7 @@ void LevelEntityManager::Update(KeyState pKeyState) {
   mFrameTime = mFrameClock.restart().asSeconds();
 
   sf::Vector2f NewPlayerPos = GetPlayerNewPosition(mPlayer, pKeyState);
-  sf::Vector2f NewPlayerSpritePos = sf::Vector2f(NewPlayerPosx - mPlayer.getSprite().getOrigin().x, NewPlayerPos.y - mPlayer.GetSprite().getOrigin().y);
+  sf::Vector2f NewPlayerSpritePos = sf::Vector2f(NewPlayerPos.x - mPlayer.GetSprite().getOrigin().x, NewPlayerPos.y - mPlayer.GetSprite().getOrigin().y);
 
   mPlayer.SetDirection(ToDegrees(DirectionToPoint(mPlayer.GetPosX(), mPlayer.GetPosY(), sf::Mouse::getPosition(*mpTarget).x, sf::Mouse::getPosition(*mpTarget).y)));
   mPlayer.Update(mFrameTime, pKeyState, CheckTileSolidCollision(GenerateBoxFromDimensions(NewPlayerSpritePos.x, NewPlayerSpritePos.y, mPlayer.GetTexture().getSize().x, mPlayer.GetTexture().getSize().y)));
@@ -20,7 +20,7 @@ void LevelEntityManager::Update(KeyState pKeyState) {
 
 sf::Vector2f LevelEntityManager::GetPlayerNewPosition(PlayerCharacter pPlayer, KeyState pKeyState) {
   float NewPlayerX = pPlayer.GetPosX();
-  float NewPlayerY = pPlayer.getPosY();
+  float NewPlayerY = pPlayer.GetPosY();
 
   if (pKeyState.UpPressed)
     NewPlayerY -= pPlayer.GetSpeed() * mFrameTime;

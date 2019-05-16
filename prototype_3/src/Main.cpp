@@ -1,5 +1,5 @@
 #include "PlayerCharacter.h"
-#include "Functionlib.h"
+#include "FunctionLib.h"
 #include "TileEngine.h"
 #include "LevelEntityManager.h"
 
@@ -27,7 +27,7 @@ int main() {
   srand (time(NULL));
 
   settings.antialiasingLevel = 8;
-  window.create(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "Heist", sf::Style::Default, settings);
+  window.create(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "Legend of Zelta", sf::Style::Default, settings);
 
   GenerateTestLevel();
 
@@ -35,7 +35,7 @@ int main() {
   TileEngine MyEngine;
   sf::Texture MyTexture;
   sf::Texture TileSet;
-  MyTexture.loadFromFile("PlaceHolderPlayer.png");
+  MyTexture.loadFromFile("test_player.png");
   TileSet.loadFromFile("TileSet.png");
 
   MyPlayer.SetTexture(MyTexture);

@@ -42,7 +42,7 @@ public:
   void SetTexture(sf::Texture val);
   void SetDirection(float val) { mDirection = val; }
   void SetWeapon(WeaponStats pWeapon) { mWeapon = pWeapon; }
-  void SetProjectiles(std::vector<Projectile>& pProjectiles) { mProjectiles = pProjectiles }
+  void SetProjectiles(std::vector<Projectile>& pProjectiles) { mProjectiles = pProjectiles; }
 
   // Member functions
   // Draw the player sprite and projectiles

@@ -34,7 +34,7 @@ void Projectile::SetDirection(float pDirection) {
 
 void Projectile::SetTexture(sf::Texture pTexture) {
   mSpriteTexture = pTexture;
-  mSprite.SetTexture(mSpriteTexture);
+  mSprite.setTexture(mSpriteTexture);
   mSprite.setOrigin(mSpriteTexture.getSize().x / 2, mSpriteTexture.getSize().y / 2);
 }
 
@@ -45,7 +45,7 @@ void Projectile::UpdateSprite() {
 }
 
 
-void Projectile::CaculateVelocities(float pDirection, float pVelocity) {
+void Projectile::CalculateVelocities(float pDirection, float pVelocity) {
   VelX = ToDegrees(cos(ToRadians(pDirection))) * pVelocity;
   VelY = ToDegrees(sin(ToRadians(pDirection))) * pVelocity;
 }

@@ -15,11 +15,11 @@ public:
 
   // Setters
   void SetPosX(float val) { mPosX = val; }
-  void SetPoxY(float val) { mPosY = val; }
+  void SetPosY(float val) { mPosY = val; }
 
 protected:
   float mPosX;
-  float mPosy;
+  float mPosY;
 };
 
 #endif

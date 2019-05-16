@@ -21,7 +21,7 @@ public:
   float GetVelY() { return VelY; }
   float GetDamage() { return mDamage; }
   sf::Sprite GetSprite() { return mSprite; }
-  float GetDirection() { return mDirection }
+  float GetDirection() { return mDirection; }
 
   // Setters
   void SetVelX(float pVelX) { VelX = pVelX; }
@@ -29,7 +29,7 @@ public:
   void SetDamage(float pDamage) { mDamage = pDamage; }
   void SetSprite(sf::Sprite pSprite) { mSprite = pSprite; }
   void SetDirection(float pDirection);
-  void SetTexutre(sf::Texture pTexture);
+  void SetTexture(sf::Texture pTexture);
 
   // Public member functions
   void Render(sf::RenderWindow* pTarget) { pTarget->draw(mSprite); }

@@ -1,10 +1,12 @@
+#ifndef TILEENGINE_H
+#define TILEENGINE_H
 #include "SFML/Graphics.hpp"
 
 
 struct Tile {
   sf::Sprite mTileSprite;
   bool mSolidState;
-}
+};
 
 
 class TileEngine {
@@ -15,7 +17,7 @@ public:
   // Generate from parameters
   TileEngine(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec, float pPosX = 0, float pPosY = 0);
   // Generate from an already generated tile vector
-  TileEngine(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> > pTiles, float pPosX = 0, flaot pPosY = 0);
+  TileEngine(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> > pTiles, float pPosX = 0, float pPosY = 0);
   ~TileEngine();
 
   // Getters
@@ -30,7 +32,7 @@ public:
   // Setters
   void SetPosX(float pPosX) { mPosX = pPosX; }
   void SetPosY(float pPosY) { mPosY = pPosY; }
-  void SetTiles(std::vector<std::vector<Tile> >& pTiles) { mTiles = pTilesl }
+  void SetTiles(std::vector<std::vector<Tile> >& pTiles) { mTiles = pTiles; }
 
   // Public member functions
   void LoadFromFile(std::string pFileLocation);

@@ -47,7 +47,7 @@ float DirectionToPoint(Entity* a, Entity* b) {
 }
 
 
-std::vector<sf::Vector2f> GenerateBoxFromSprite(sf::Sprite pSrite) {
+std::vector<sf::Vector2f> GenerateBoxFromSprite(sf::Sprite pSprite) {
   // Top right
   sf::Vector2f P1((pSprite.getPosition().x - pSprite.getOrigin().x), (pSprite.getPosition().y - pSprite.getOrigin().y));
   // Top left

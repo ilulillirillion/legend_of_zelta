@@ -32,19 +32,19 @@ void TileEngine::LoadFromParam(float pTileWidth, float pTileHeight, unsigned int
   mPosY = pPosY;
   mTileWidth = pTileWidth;
   mTileHeight = pTileHeight;
-  mMapSizeX = mMapSizeX;
+  mMapSizeX = pMapSizeX;
   mMapSizeY = pMapSizeY;
-  mTileSet = pTileSEt;
+  mTileSet = pTileSet;
 
-  for (unsigned int i = 0l i < mMapSizeY; i++ ) {
+  for (unsigned int i = 0; i < mMapSizeY; i++ ) {
     std::vector<Tile> Row;
 
     for (unsigned int j = 0; j < mMapSizeX; j++) {
       Tile TempTile;
       
       TempTile.mSolidState = pSolidStateVec[i][j];
-      TempFile.mTileSprite.setTexture(mTileSet);
-      TempFile.mTileSprite.setTextureRect(sf::IntRect((pTileIDVec[i][j] & static_cast<int>(mTileSet.getSize().x / mTileWidth)) * mTileWidth, static_cast<int>(pTileIDVec[i][j] / (mTileSet.getSize().x / mTileWidth)) * mTileHeight, mTileWidth, mTileHeight));
+      TempTile.mTileSprite.setTexture(mTileSet);
+      TempTile.mTileSprite.setTextureRect(sf::IntRect((pTileIDVec[i][j] & static_cast<int>(mTileSet.getSize().x / mTileWidth)) * mTileWidth, static_cast<int>(pTileIDVec[i][j] / (mTileSet.getSize().x / mTileWidth)) * mTileHeight, mTileWidth, mTileHeight));
 
       Row.push_back(TempTile);
     }
@@ -56,7 +56,7 @@ void TileEngine::LoadFromParam(float pTileWidth, float pTileHeight, unsigned int
 }
 
 
-void TileEngine::LoadFromTiles(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> >& pTiles, flat pPosX, float pPosY) {
+void TileEngine::LoadFromTiles(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> >& pTiles, float pPosX, float pPosY) {
   mPosX = pPosX;
   mPosY = pPosY;
   mTileWidth = pTileWidth;
@@ -65,4 +65,39 @@ void TileEngine::LoadFromTiles(float pTileWidth, float pTileHeight, unsigned int
   mMapSizeY = pMapSizeY;
   mTiles = pTiles;
   mTileSet = pTileSet;
+}
+
+
+void TileEngine::Render(sf::RenderWindow* pTarget) {
+  for (unsigned int i = 0; i < mMapSizeY; i++) {
+    for (unsigned int j = 0; j < mMapSizeX; j++) {
+      pTarget->draw(mTiles[i][j].mTileSprite);
+    }
+  }
+}
+
+
+void TileEngine::UpdateTileSpritePos() {
+  for (unsigned int i = 0; i < mMapSizeY; i++) {
+    for (unsigned int j = 0; j < mMapSizeX; j++) {
+      mTiles[i][j].mTileSprite.setPosition(mPosX + j * mTileWidth, mPosY + i * mTileHeight);
+    }
+  }
+}
+
+
+bool TileEngine::CheckSolid(float px, float py) {
+  float RelX = px - mPosX;
+  float RelY = py - mPosY;
+
+  if (RelX < 0 || RelY < 0 || RelX > mMapSizeX * mTileWidth ||  RelY > mMapSizeY * mTileHeight)  //If out of the world, colision = true
+    return true;
+
+  int TilesX = static_cast<int>(RelX / mTileWidth);
+  int TilesY = static_cast<int>(RelY / mTileHeight);
+
+  if (mTiles[TilesY][TilesX].mSolidState)  //guarenteed not to throw out of range exeption because of previous if statement exclusing out of bounds values
+    return true;
+
+  return false;
 }
