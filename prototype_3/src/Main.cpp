@@ -36,7 +36,7 @@ int main() {
   sf::Texture MyTexture;
   sf::Texture TileSet;
   MyTexture.loadFromFile("test_player.png");
-  TileSet.loadFromFile("test_tileset.png");
+  TileSet.loadFromFile("test_grass_tile.png");
 
   MyPlayer.SetTexture(MyTexture);
   MyPlayer.SetWeapon(GetWeaponStat(SMGWeapon));
@@ -49,7 +49,12 @@ int main() {
     std::vector<int> intRow;
 
     for (unsigned int j = 0; j < MapWidth; j++) {
-      intRow.push_back(rand() & 10);
+
+      // Randomly return a 0 or 1 to determine if tile is blocking
+      //intRow.push_back(rand() & 10);
+
+      // Force all tiles to be non-blocking
+      intRow.push_back(1);
 
       if (intRow[j] > 1)
         intRow[j] = 1;
