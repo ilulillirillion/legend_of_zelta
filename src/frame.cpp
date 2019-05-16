@@ -2,6 +2,14 @@
 #include "perlin_noise.h"
 
 
+#define WATER_PAIR  1
+#define PLAIN_PAIR 2
+#define MOUNTAIN_PAIR 3
+#define SNOW_PAIR 4
+
+
+
+
 // Initialize a main window (no parent)
 Frame::Frame(int nr_rows, int nr_cols, int row_0, int col_0) {
   _has_super = FALSE;
@@ -179,6 +187,18 @@ void Frame::gen_perlin(const unsigned int &seed) {
   // via seed
   PerlinNoise pn(seed);
 
+  if (has_colors() == FALSE) {
+    endwin();
+    printf("Your terminal does not support color\n");
+    exit(1);
+  }
+
+  start_color();
+  init_pair(WATER_PAIR, COLOR_BLUE, COLOR_BLUE);
+  init_pair(PLAIN_PAIR, COLOR_YELLOW, COLOR_YELLOW);
+  init_pair(MOUNTAIN_PAIR, COLOR_MAGENTA, COLOR_MAGENTA);
+  init_pair(SNOW_PAIR, COLOR_WHITE, COLOR_WHITE);
+
   // y axis
   for(int i = 0; i < _height; ++i) {
     // x axis
@@ -191,19 +211,27 @@ void Frame::gen_perlin(const unsigned int &seed) {
 
       // Water (or lakes)
       if (n < 0.35) {
+        wattron(_w, COLOR_PAIR(WATER_PAIR));
         mvwaddch(_w, i, j, '~');
+        wattroff(_w, COLOR_PAIR(WATER_PAIR));
       }
       // Floors (or plains)
       else if (n >= 0.35 && n < 0.6) {
+        wattron(_w, COLOR_PAIR(PLAIN_PAIR));
         mvwaddch(_w, i, j, '.');
+        wattroff(_w, COLOR_PAIR(PLAIN_PAIR));
       }
       // Walls (or mountains)
       else if (n >= 0.6 && n < 0.8) {
+        wattron(_w, COLOR_PAIR(MOUNTAIN_PAIR));
         mvwaddch(_w, i, j, '#');
+        wattroff(_w, COLOR_PAIR(MOUNTAIN_PAIR));
       }
       // Ice (or snow)
       else {
+        wattron(_w, COLOR_PAIR(SNOW_PAIR));
         mvwaddch(_w, i, j, 'S');
+        wattroff(_w, COLOR_PAIR(SNOW_PAIR));
       }
     }
   }
