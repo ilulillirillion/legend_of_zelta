@@ -36,7 +36,7 @@ int main() {
   sf::Texture MyTexture;
   sf::Texture TileSet;
   MyTexture.loadFromFile("test_player.png");
-  TileSet.loadFromFile("TileSet.png");
+  TileSet.loadFromFile("test_tileset.png");
 
   MyPlayer.SetTexture(MyTexture);
   MyPlayer.SetWeapon(GetWeaponStat(SMGWeapon));
