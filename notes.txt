@@ -1,0 +1,1 @@
+- Project should have a CMakeLists.txt file to ease compiling
