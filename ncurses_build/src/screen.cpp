@@ -24,7 +24,7 @@ Screen::~Screen() {
 
 
 // Print to the screen
-void Screen::print_message(const char *message) {
+void Screen::add(const char *message) {
   printw(message);
 }
 

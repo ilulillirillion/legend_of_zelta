@@ -21,8 +21,8 @@ public:
   // Get width
   int width();
   
-  // Print a message on the screen
-  void print_message(const char *message);
+  // Add character/s to the screen
+  void add(const char *message);
 
 };
 
