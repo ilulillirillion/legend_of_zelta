@@ -81,13 +81,16 @@ double PerlinNoise::noise(double x, double y, double z) {
 
 }
 
+
 double PerlinNoise::fade(double t) {
   return t * t * t * (t * (t * 6 - 15) + 10);
 }
 
+
 double PerlinNoise::lerp(double t, double a, double b) {
   return a + t * (b - a);
 }
+
 
 double PerlinNoise::grad(int hash, double x, double y, double z) {
   int h = hash & 15;
