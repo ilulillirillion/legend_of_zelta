@@ -1,0 +1,8 @@
+- 'elsefire'
+    lore: 
+      - the fire that consumed the old mundane world and remade it with magic
+      - has a literally unique, undescribable color and odor
+      - as it "burns" emits whispers in an unknown language
+      - moves like snakes (spreads in a similar pattern to fire)
+      - side effects of witnessing the flames visually include amnesia and eldritch insanity
+- all magic stems from a central networked organism (gaia theory)
