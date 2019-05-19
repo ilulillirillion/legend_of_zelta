@@ -3,17 +3,17 @@
 
 
 // Initialize a root window
-Frame::Frame(int rows, int columns, int start_row, int start_column) {
+Frame::Frame(int height, int width, int row, int column) {
   // TODO: Consider converting this to a getter or just checking _super
   _has_super = false;
   // FIXME: does this ever get used?
   _super = NULL;
-  _window = newwin(rows, columns, start_row, start_column);
+  _window = newwin(height, width, row, column);
   // FIXME: does this have any advantage over using a _window method call?
-  _height = rows;
-  _width = columns;
-  _row = start_row;
-  _column = start_column;
+  _height = height;
+  _width = width;
+  _row = row;
+  _column = column;
 }
 
 
@@ -22,19 +22,19 @@ Frame::Frame(
     // Parent frame
     Frame &parent_frame, 
     // Number of rows and columns
-    int rows, int columns, 
+    int height, int width, 
     // Starting coordinates
-    int start_row, int start_column) {
+    int row, int column) {
   _has_super = true;
   // Set the parent to the root window
   _super = parent_frame.win();
   // Construct a screen instance with starting coordinates relative to the
   // parent (root) window
-  _window = derwin(parent_frame.win(), rows, columns, start_row, start_column
-  _height = rows;
-  _width = columns;
-  _row = start_row;
-  _column = start_column;
+  _window = derwin(parent_frame.win(), height, width, row, column);
+  _height = height;
+  _width = width;
+  _row = row;
+  _column = column;
 }
 
 
@@ -46,7 +46,7 @@ Frame::~Frame() {
 
 // Add a character to the window
 void Frame::add(Character &x) {
-  mvwaddch(_window, x.row(), x.column, x.symbol());
+  mvwaddch(_window, x.row(), x.column(), x.symbol());
 }
 
 
@@ -100,8 +100,8 @@ void Frame::center(Character &x) {
   if(_has_super) {
     int center_row, center_column, super_height, super_width;
     // Derive how far the character is from the screen center
-    int row_offest = x.row() - _height/2;
-    int column_offest = x.column() - _height/2;
+    int row_offset = x.row() - _height/2;
+    int column_offset = x.column() - _height/2;
   
     // Use NCurses <getmaxyx> to get the maximum boundaries of the parent and 
     // save it to <super_height> and <super_width>
@@ -111,7 +111,7 @@ void Frame::center(Character &x) {
     // frame, limit scrolling
     if(row_offset + _height >= super_height) {
       int delta = super_height - (row_offset + _height);
-      center_row = row_offset + delta
+      center_row = row_offset + delta;
     }
     else { 
       center_row = row_offset; 
@@ -182,12 +182,12 @@ void Frame::fill_window() {
   // Fill the third (northeast) quadrant with 2's
   for(int y = halfway_y; y < _height; ++y) {
     for(int x = 0; x < halfway_x; ++x) {
-      mvwaddch(_window, y, x, '2')'
+      mvwaddch(_window, y, x, '2');
     }
   }
   // Fill the fourth (northwest) quadrant with 3's
   for(int y = halfway_y; y < _height; ++y) {
-    for(int x = halfway_x; x < _with; ++x) {
+    for(int x = halfway_x; x < _width; ++x) {
       mvwaddch(_window, y, x, '3');
     }
   }
@@ -199,7 +199,7 @@ void Frame::fill_window() {
   }
   for(int x = 0; x < _width; ++x) {
     mvwaddch(_window, 0, x, '|');
-    mvwaddch(_window, _height - 1 x, '|');
+    mvwaddch(_window, _height - 1, x, '|');
   }
 }
 
@@ -223,15 +223,15 @@ void Frame::generate_perlin_environment(const unsigned int &seed) {
       }
       // Plains
       else if (n >= 0.35 && n < 0.6) {
-        mvwaddch(_window, i, j, '.')'
+        mvwaddch(_window, i, j, '.');
       }
       // Mountains
-      else if (n >= 0.6 && 0.8) {
+      else if (n >= 0.6 && n < 0.8) {
         mvwaddch(_window, i, j, '#');
       }
       // Ice
       else {
-        mvwaddch(_w, i, j, 'S');
+        mvwaddch(_window, i, j, 'S');
       }
     }
   }
@@ -239,8 +239,8 @@ void Frame::generate_perlin_environment(const unsigned int &seed) {
 
 
 // Get the window
-WINDOW* Frame::win()
-  return _w;
+WINDOW* Frame::win() {
+  return _window;
 }
 
 

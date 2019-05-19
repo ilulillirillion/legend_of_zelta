@@ -13,7 +13,7 @@ class Frame {
   // Whether the frame has a parent
   bool _has_super;
   // Give the frame an NCurses window component
-  WINDOW *_w;
+  WINDOW *_window;
   // Give the frame an NCurses parent window (should be set to NULL for parent/
   // root windows
   WINDOW *_super;
@@ -23,7 +23,7 @@ public:
   // Get the parent window
   WINDOW *super();
   // Initialize a parentless/root window
-  Frame(int rows, int columns, int start_row, int start_column);
+  Frame(int rows, int columns, int row, int column);
   // Initialize a subwindow (with a parent)
   Frame(Frame &parent_window, int rows, int columns, int start_row, int start_column);
   // Deconstruct/clear the frame object

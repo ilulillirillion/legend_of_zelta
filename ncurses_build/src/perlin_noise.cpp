@@ -1,4 +1,8 @@
 #include "perlin_noise.h"
+#include <iostream>
+#include <cmath>
+#include <random>
+#include <algorithm>
 
 
 // Construct a perlin noise instance
@@ -34,14 +38,14 @@ PerlinNoise::PerlinNoise(unsigned int seed) {
   // Limit permutation vector to 256 values
   permutations.resize(256);
 
-  // Populate permutation vector
-  permutations.insert(permutations.end(), p.begin(), p.end());
+  // Populate permutation vector with values between 0 and 255
+  std::iota(permutations.begin(), permutations.end(), 0);
 
   // Construct a random generator usgin a seed
   std::default_random_engine engine(seed);
 
   // Shuffle the permutation vector using the above engine
-  std::shuffle(p.begin(), p.end(), engine);
+  std::shuffle(permutations.begin(), permutations.end(), engine);
 
   // Duplicate the permutation vector
   permutations.insert(
@@ -68,15 +72,15 @@ double PerlinNoise::noise(double x, double y, double z) {
   double w = fade(z);
 
   // Hash coordinates of the 8 cube corners
-  int A = p[X] + Y;
-  int AA = p[A] + Z;
-  int AB = p[A + 1] + Z;
-  int B = p[X + 1] + Y;
-  int BA = p[B] + Z;
-  int BB = p[B + 1] + Z;
+  int A = permutations[X] + Y;
+  int AA = permutations[A] + Z;
+  int AB = permutations[A + 1] + Z;
+  int B = permutations[X + 1] + Y;
+  int BA = permutations[B] + Z;
+  int BB = permutations[B + 1] + Z;
 
   // Add blended results from 8 corners of cube
-  double res = lerp(w, lerp(v, lerp(u, grad(p[AA], x, y, z), grad(p[BA], x-1, y, z)), lerp(u, grad(p[AB], x, y-1, z), grad(p[BB], x-1, y-1, z))), lerp(v, lerp(u, grad(p[AA+1], x, y, z-1), grad(p[BA+1], x-1, y, z-1)), lerp(u, grad(p[AB+1], x, y-1, z-1), grad(p[BB+1], x-1, y-1, z-1))));
+  double res = lerp(w, lerp(v, lerp(u, grad(permutations[AA], x, y, z), grad(permutations[BA], x-1, y, z)), lerp(u, grad(permutations[AB], x, y-1, z), grad(permutations[BB], x-1, y-1, z))), lerp(v, lerp(u, grad(permutations[AA+1], x, y, z-1), grad(permutations[BA+1], x-1, y, z-1)), lerp(u, grad(permutations[AB+1], x, y-1, z-1), grad(permutations[BB+1], x-1, y-1, z-1))));
   return (res + 1.0)/2.0;
 
 }

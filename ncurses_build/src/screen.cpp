@@ -7,7 +7,7 @@ Screen::Screen() {
   clear();
   noecho();
   cbreak();
-  keypad(stcscr, TRUE);
+  keypad(stdscr, TRUE);
   curs_set(0);
 
   // Get screen dimensions of stdscr, assigning maxy to _height and maxx to
