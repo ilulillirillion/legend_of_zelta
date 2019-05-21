@@ -1,3 +1,8 @@
-# Compiling
+# Building
+Will generate an executable file `legend_of_zelta` in project directory. Regardless of how it is built, simply execute the file to launch the game. Currently the game must be launched from a terminal or terminal emulator (there are plans to bundle a terminal emulator in the future).
 
-`g++ -std=c++11 -lncurses perlin_noise.cpp character.cpp screen.cpp frame.cpp  game.cpp -o game`
+## CMake (Recommended)
+
+1. `cd` into project directory
+2. `cmake .`
+3. `make`
