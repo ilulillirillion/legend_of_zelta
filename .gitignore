@@ -1,3 +1,11 @@
 legend_of_zelta
 *.swp
 **/*.swp
+Makefile
+**/Makefile
+CMakeCache.txt
+**/CMakeCache.txt
+CMakeFiles
+**/CMakeFiles
+cmake_install.cmake
+**/cmake_install.cmake
