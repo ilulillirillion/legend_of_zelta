@@ -1,16 +1,4 @@
 ---
-
-A simple C++ game built for fun and learning.
-
----
-
-Compiling:
-  cmake: Coming soon
-  clang: ``clang++ -std=c++11 -stdlib=libc++ -Weverything -lncurses src/hello_world.cpp -o legend_of_zelta`
-  g++: `g++ -std=c++11 -lncurses src/hello_world.cpp -o legend_of_zelta`
-
----
-
 # Build 0
 Say hello world
 
@@ -26,5 +14,3 @@ Turns out c++ does not want semicolons ending functions so I removed the trailin
 `g++ -std=c++11 -lncurses src/hello_world.cpp -o legend_of_zelta`
 
 The code currently prints "Hello world!" and exits on keypress.
-
----

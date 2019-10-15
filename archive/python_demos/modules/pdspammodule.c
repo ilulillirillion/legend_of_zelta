@@ -1,0 +1,54 @@
+#include <Python.h>
+
+
+PyMODINIT_FUNC
+PyInit_spam(void)
+{
+    PyObject *m;
+
+    m = PyModule_Create(&spammodule);
+    if (m == NULL)
+        return NULL;
+
+    SpamError = PyErr_NewException("spam.error", NULL, NULL);
+    Py_INCREF(SpamError);
+    PyModule_AddObject(m, "error", SpamError);
+    return m;
+}
+
+
+static PyObject *SpamError;
+
+
+static struct PyModuleDef spammodule = {
+    PyModuleDef_HEAD_INIT,
+    "spam",   /* name of module */
+    spam_doc, /* module documentation, may be NULL */
+    -1,       /* size of per-interpreter state of the module,
+                 or -1 if the module keeps state in global variables. */
+    SpamMethods
+};
+
+
+static PyObject *
+spam_system(PyObject *self, PyObject *args)
+{
+    const char *command;
+    int sts;
+
+    if (!PyArg_ParseTuple(args, "s", &command))
+        return NULL;
+    sts = system(command);
+    if (sts < 0) {
+        PyErr_SetString(SpamError, "System command failed");
+        return NULL;
+    }
+    return PyLong_FromLong(sts);
+}
+
+
+PyMODINIT_FUNC
+PyInit_spam(void)
+{
+    return PyModule_Create(&spammodule);
+}
