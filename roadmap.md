@@ -1,20 +1,24 @@
 ---
-# Repository
-  - Dynamic README generation. Either append build journal to README automatically or fully generate a README file on build from sources.
 
-# App Structure:
+# Planning
+
+## Repository
+  - Dynamic README generation. Either append build journal to README automatically or fully generate a README file on build from sources.
+  - Some sort of configuration -> template resolution model.
+
+## App Structure:
   - Use CMakeLists to build with cmake
 
-# Code Paradigm:
+## Code Paradigm:
   - Follow OOP for increased performance. Use FP wherever in modular components where the performance lost is sufficiently mitigated or absent altogether.
 
-# Code Features:
+## Code Features:
   - Monads
     - optional monad
     - error handling monad
   - Expose interface for python scripting
 
-# App
+## App
   - logger
     - togglable
     - can set levels
@@ -26,12 +30,31 @@
     - serve data to client
     - allow client to get data from database
 
-# Game Objects:
+## Game Objects:
   - game
   - player
 
-# Notes:
+## Notes:
   - use 'auto' to shorten for loops?
+
+---
+
+# Milestones
+
+  - name: hello world [X]
+
+  - name: CMakeLists file [X]
+
+  - name: build logger      []
+      - basic logging       []
+      - configurable levels []
+      - multi-stream output []
+      - object logging      []
+      - log file names      []
+      - log line numbers    []
+      - log function names  []
+
+---
 
 
 === old

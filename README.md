@@ -11,6 +11,29 @@ Compiling:
 
 ---
 
+Build 1
+Add a CMakeLists file
+
+Added a CMakeLists.txt file outlining the following:
+
+`project: legend of zelta`
+Specified project name.
+
+`cmake_minimum_required( VERSION 1.0 )`
+Specifies a minimum cmake version for compiling the application. In this case, 1 is arbitrary other than seeming to successfully compile the hello world file.
+
+`find_package( Curses REQUIRED )`
+`include_directories(${CURSES_INCLUDE_DIR})`
+Locate and include the Curses library, used for basic graphics.
+
+`add_executable( legend_of_zelta ./src/hello_world.cpp )`
+Include all current source files.
+
+`target_link_libraries( legend_of_zelta ${CURSES_LIBRARIES} )`
+Explicitly link any external libraries (in this case, only Curses).
+
+---
+
 # Build 0
 Say hello world
 
