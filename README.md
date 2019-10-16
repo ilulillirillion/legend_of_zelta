@@ -16,6 +16,15 @@ Resources I've learned from:
 
 ---
 
+# Build 3
+## Add multi-sink multi-out spdlogging
+
+Get a working instance of a multi-sink logger. Logs to stdout with color and logs to a log
+file. Log levels and patterns can be set independently. Took lots of attempts so will have
+ to come back and clean up committed commented code.
+
+---
+
 # Build 2
 ## Add basic spdlog test
 
