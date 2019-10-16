@@ -4,7 +4,7 @@
 
 ## Repository
   - Dynamic README generation. Either append build journal to README automatically or fully generate a README file on build from sources.
-  - Some sort of configuration -> template resolution model.
+  - Some sort of configuration -> template resolution model (mustache?).
 
 ## App Structure:
   - Use CMakeLists to build with cmake

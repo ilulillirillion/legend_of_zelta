@@ -1,0 +1,10 @@
+---
+
+# Build 2
+## Add basic spdlog test
+
+I went with spdlog for logging because it seemed to be the most widely recommended library.
+
+I initially had a great deal of trouble compiling it with CMake initially due to a mistake, but otherwise it seems very straightforward.
+
+Also re-organize some of the code, put hello world in it's own directory with it's own cmake lists.
