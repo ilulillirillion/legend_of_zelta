@@ -16,6 +16,11 @@ Resources I've learned from:
 
 ---
 
+# Build 4
+## Cleanup logger and add test code
+
+---
+
 # Build 3
 ## Add multi-sink multi-out spdlogging
 

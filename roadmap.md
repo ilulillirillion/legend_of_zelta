@@ -45,14 +45,28 @@
 
   - name: CMakeLists file [X]
 
-  - name: build logger      []
-      - basic logging       []
-      - configurable levels []
-      - multi-stream output []
-      - object logging      []
-      - log file names      []
-      - log line numbers    []
-      - log function names  []
+  - name: build logger            [X]
+      basic logging               [X]
+      configurable levels         [X]
+      multi-stream output         [X]
+      custom log levels           []
+      logging to database         []
+      log to db (postprocess)     []
+      object logging              []
+      log file names              []
+      log line numbers            []
+      log function names          []
+      live level configuration    []
+
+  - name: read/write to sql []
+
+  - name: togglable maintenance mode    []
+  - name: trigger a maintenance cycle   []
+      interval processing               []
+        transfer logs to database       []
+        garbage collection?             []
+        
+  - name: scheduled maintenance cycles  []
 
 ---
 

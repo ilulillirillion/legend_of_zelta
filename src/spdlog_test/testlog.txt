@@ -1,1 +1,6 @@
-[2019-10-15 23:01:41.805] [main] [error] test error
+[2019-10-16 14:43:27.980] [main] [debug] test debug
+[2019-10-16 14:43:27.981] [main] [info] test info
+[2019-10-16 14:43:27.981] [main] [warning] test warn
+[2019-10-16 14:43:27.981] [main] [error] test error
+[2019-10-16 14:43:27.981] [main] [critical] test critical
+[2019-10-16 14:43:27.981] [main] [info] Finished building main logger.
