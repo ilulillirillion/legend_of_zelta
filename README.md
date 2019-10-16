@@ -13,16 +13,25 @@ Compiling:
 
 Resources I've learned from:
   - https://cmake.org/pipermail/cmake/2016-May/063400.html
+  - https://www.geeksforgeeks.org/command-line-arguments-in-c-cpp/
 
 ---
 
-# Build 4
-## Cleanup logger and add test code
+## Build 5
+### Import simple argv demo from GeeksforGeeks
+
+Importing https://www.geeksforgeeks.org/command-line-arguments-in-c-cpp/ to use as a simple standalone script for testing and learning, so I can understand how to incorporate my own
+ arguments patterns elsewhere.
 
 ---
 
-# Build 3
-## Add multi-sink multi-out spdlogging
+## Build 4
+### Cleanup logger and add test code
+
+---
+
+## Build 3
+### Add multi-sink multi-out spdlogging
 
 Get a working instance of a multi-sink logger. Logs to stdout with color and logs to a log
 file. Log levels and patterns can be set independently. Took lots of attempts so will have
@@ -30,8 +39,8 @@ file. Log levels and patterns can be set independently. Took lots of attempts so
 
 ---
 
-# Build 2
-## Add basic spdlog test
+## Build 2
+### Add basic spdlog test
 
 I went with spdlog for logging because it seemed to be the most widely recommended library.
 
@@ -41,8 +50,8 @@ Also re-organize some of the code, put hello world in it's own directory with it
 
 ---
 
-# Build 1
-## Add a CMakeLists file
+## Build 1
+### Add a CMakeLists file
 
 Added a CMakeLists.txt file outlining the following:
 
@@ -64,8 +73,8 @@ Explicitly link any external libraries (in this case, only Curses).
 
 ---
 
-# Build 0
-## Say hello world
+## Build 0
+### Say hello world
 
 
 Initially compiled hello world and got:
