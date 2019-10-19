@@ -9,7 +9,7 @@ That aside, it is my intention to work on this project for a long time and ultim
 ---
 
 Compiling:
-  cmake: cmake . && make
+  cmake: `cmake . && make`
   clang: `clang++ -std=c++11 -stdlib=libc++ -Weverything -lncurses src/hello_world.cpp -o legend_of_zelta`
   g++: `g++ -std=c++11 -lncurses src/hello_world.cpp -o legend_of_zelta`
 
@@ -18,6 +18,13 @@ Compiling:
 Resources I've learned from:
   - https://cmake.org/pipermail/cmake/2016-May/063400.html
   - https://www.geeksforgeeks.org/command-line-arguments-in-c-cpp/
+
+---
+
+## Build 11
+### Modify database_connection compilation settings
+
+In this commit I spent a lot of time trying to get a better working solution for compiling my database_connection module. I was able to move away from having the entire library copied into the module, which is nice, but I cannot get dynamic library linking to work without polluting the environment variables on the system. I think the only steps forward for proper bundling would be some sort of packaging abstraction or static copying and linking.
 
 ---
 

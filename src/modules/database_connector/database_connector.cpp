@@ -15,7 +15,7 @@
 #include "cppconn/statement.h"
 #include "cppconn/prepared_statement.h"
 
-#define DEFAULT_STATEMENT "SELECT * from *"
+#define DEFAULT_STATEMENT "SELECT 1"
 // TODO: Add error handling if these env variables are not defined.
 #define ENV_URI std::getenv("ZELTA_DBCON_URI")
 #define ENV_USERNAME std::getenv("ZELTA_DBCON_USERNAME")
@@ -47,8 +47,11 @@ int main(int argc, const char **argv) {
     // FIXME: Over 80 chars.
     std::auto_ptr<sql::Connection> connection(driver->connect(uri, username, password));
 
-    // TODO: Document what this is doing.
+    // Tell the connection which database to use.
     connection->setSchema(database);
+
+    // Test database connectivity with a 60 second timeout.
+    connection->isValid();
 
     // Create a statement object to send to SQL.
     std::auto_ptr<sql::Statement> statement(connection->createStatement());
