@@ -4,13 +4,13 @@ A simple C++ game built for fun and learning.
 
 At the time of this writing this project as a single contributor and, while efforts are made to keep the code organized and understandable, this repository is not guaranteed to always be in any particular state. In addition, this project is in an incredibly early stage right now, with very little in the way of planning or documentation.
 
-That aside, it is my intention to work on this project for a long time and ultimately find find useful collaboration from elements in the community as one-off additions or short/long term collaboration. Please feel free to reach out to me here or at zolvaring@gmail.com if interested or with any other questions or concerns.
+That aside, it is my intention to work on this project for a long time and ultimately find useful collaboration from elements in the community as one-off additions or short/long term collaboration. Please feel free to reach out to me here or at zolvaring@gmail.com if interested or with any other questions or concerns.
 
 ---
 
 Compiling:
   cmake: cmake . && make
-  clang: ``clang++ -std=c++11 -stdlib=libc++ -Weverything -lncurses src/hello_world.cpp -o legend_of_zelta`
+  clang: `clang++ -std=c++11 -stdlib=libc++ -Weverything -lncurses src/hello_world.cpp -o legend_of_zelta`
   g++: `g++ -std=c++11 -lncurses src/hello_world.cpp -o legend_of_zelta`
 
 ---
@@ -18,6 +18,13 @@ Compiling:
 Resources I've learned from:
   - https://cmake.org/pipermail/cmake/2016-May/063400.html
   - https://www.geeksforgeeks.org/command-line-arguments-in-c-cpp/
+
+---
+
+## Build 10
+### Trivial README fixes
+
+Fixed a typo and markdown error in project root README.
 
 ---
 
