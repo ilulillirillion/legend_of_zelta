@@ -1,0 +1,13 @@
+
+https://stackoverflow.com/questions/25373055/ld-library-path-not-working-under-os-x-10-9
+
+
+had to set ➜  mysql_connection_test git:(master) ✗ ./mysql_connection_test
+Connector/C++ tutorial framework...
+
+# ERR: SQLException in mysql_connection_test.cpp(main) on line 56
+# ERR: Access denied for user 'worlduser'@'localhost' (using password: YES) (MySQL error code: 1045, SQLState: 28000 )
+➜  mysql_connection_test git:(master) ✗
+
+Had to set DYLD_LIBRARY_PATH to finally get dynamic libs working
+~

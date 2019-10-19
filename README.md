@@ -2,6 +2,10 @@
 
 A simple C++ game built for fun and learning.
 
+At the time of this writing this project as a single contributor and, while efforts are made to keep the code organized and understandable, this repository is not guaranteed to always be in any particular state. In addition, this project is in an incredibly early stage right now, with very little in the way of planning or documentation.
+
+That aside, it is my intention to work on this project for a long time and ultimately find find useful collaboration from elements in the community as one-off additions or short/long term collaboration. Please feel free to reach out to me here or at zolvaring@gmail.com if interested or with any other questions or concerns.
+
 ---
 
 Compiling:
@@ -14,6 +18,15 @@ Compiling:
 Resources I've learned from:
   - https://cmake.org/pipermail/cmake/2016-May/063400.html
   - https://www.geeksforgeeks.org/command-line-arguments-in-c-cpp/
+
+---
+
+Build 8
+Add a database connector module
+
+Finally take what I've learned from compiling and the tutorial file and build a simple module on top of mysql-connector-c++ for connecting to a local DB and running a query. The code is very messy for the CMakeLists file, I intend to clean it on the next commit, in case the commented code is useful. I'm not completely sure I've gotten the parts I have correct.
+
+One concern of mine is licensing for the mysql-connector-c++ library. I've considered rewriting it and think I could make significant enough modifications in my own style to differentiate it but I'm not sure, and that may be too much work or beyond me anyway. The documentation I could find mentions a commercial distribution but I'm not able to find any more information about it. If anyone sees this and has a recommendation please let me know. For now since the code is completely open source I should satisfy requirements, I just want to keep my options open as someone new to licensing.
 
 ---
 

@@ -1,0 +1,10 @@
+DELIMITER //
+CREATE PROCEDURE add_account (IN account_id INT(11),
+                              IN account_username VARCHAR(50),
+                              IN account_password VARCHAR(255),
+                              IN account_email VARCHAR(100))
+BEGIN
+  INSERT INTO accounts(id, username, password, email)
+    VALUES (account_id, account_username, account_password, account_email);
+END //
+DELIMITER ;

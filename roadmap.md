@@ -68,6 +68,13 @@
         
   - name: scheduled maintenance cycles  []
 
+  - Write own version of cppconn          []
+  - Write own version of mysql_connector  []
+
+  - name: server meshing  []
+
+  - support python scripting  []
+
 ---
 
 

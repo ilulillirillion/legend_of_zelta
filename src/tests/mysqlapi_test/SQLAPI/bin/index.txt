@@ -1,0 +1,4 @@
+index.txt	- this file
+libsqlapi.so	- SQLAPI++ library compiled with GNU project C and C++ compiler (release)
+sqltest		- simple test program (uses libsqlapi.so)
+sqltests	- simple test program (linked with SQLAPI++ static library)
