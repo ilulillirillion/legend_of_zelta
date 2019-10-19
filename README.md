@@ -21,17 +21,25 @@ Resources I've learned from:
 
 ---
 
-Build 8
-Add a database connector module
+## Build 9
+### Cleanup database connector CMakeLists, add README
 
-Finally take what I've learned from compiling and the tutorial file and build a simple module on top of mysql-connector-c++ for connecting to a local DB and running a query. The code is very messy for the CMakeLists file, I intend to clean it on the next commit, in case the commented code is useful. I'm not completely sure I've gotten the parts I have correct.
+Cleanup commented CMakeLists code and add a readme file for the database connector module.
+Minor fixes to the project journal.
+
+---
+
+## Build 8
+### Add a database connector module
+
+Was finally able to take what I've learned from compiling and the tutorial file and build a simple module on top of mysql-connector-c++ for connecting to a local DB and running a query. The code is very messy for the CMakeLists file, I intend to clean it on the next commit, in case the commented code is useful. I'm not completely sure I've gotten the parts I have correct.
 
 One concern of mine is licensing for the mysql-connector-c++ library. I've considered rewriting it and think I could make significant enough modifications in my own style to differentiate it but I'm not sure, and that may be too much work or beyond me anyway. The documentation I could find mentions a commercial distribution but I'm not able to find any more information about it. If anyone sees this and has a recommendation please let me know. For now since the code is completely open source I should satisfy requirements, I just want to keep my options open as someone new to licensing.
 
 ---
 
-Build 7
-Journal update: Compiling mysql libraries
+## Build 7
+### Journal update: Compiling mysql libraries
 
 Work has continued on this project over the last couple of days, but I've been stuck trying to figure how to compile any of the available mysql libraries on macos. I initially tried mysqlapi++, but I was ultimately never able to get any of the examples I could find to compile. What is also difficult is that I do not have the best understanding of the compiler tools I am using, or how C wants to link things, at this point, which makes it hard to tell differentiate user errors from actual library compatibility problems, especially when encountering older documentation or libraries. Also, a lot of the community resouces I can find online pertain to specific IDEs, usually Visual Studio, from which I can gain very little of use. I am experimenting somewhat with switching to an IDE but am still very reluctant to do so.
 
